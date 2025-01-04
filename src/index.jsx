@@ -1,3 +1,5 @@
+import "./index.css";
+
 import { render } from "solid-js/web";
 import { Router, Route } from "@solidjs/router";
 
@@ -7,6 +9,7 @@ import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import Privacy from "./pages/Privacy.jsx";
 import MyContent from "./pages/MyContent.jsx";
+import Discover from "./pages/Discover.jsx";
 
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
@@ -34,6 +37,7 @@ render(
         <Route path="/register" component={Register} />
         <Route path="/privacy" component={Privacy} />
         <Route path="/my-content" component={MyContent} />
+        <Route path="/discover" component={Discover} />
         <Route path="/about" component={About} />
       </Router>
     </UserProvider>

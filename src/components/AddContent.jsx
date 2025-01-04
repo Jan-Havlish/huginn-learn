@@ -4,8 +4,12 @@ import supabase from "../supabase/client";
 import SetStudyCard from "./SetStudyCard";
 import {QuizCreate} from "./QuizCreate";
 
+import useUser from "../context/useUser";
+
 const AddContent = () => {
   const options = ["text", "study_card", "quiz"];
+
+  const user = useUser();
   const defaultCardHeight = 200;
   const scrollDown = () => {
       window.scrollBy(0, defaultCardHeight);
@@ -48,26 +52,29 @@ const addNewCard = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { title, description, content_type, study_cards, quiz_data } = formState;
 
     const payload = {
         title,
         description,
-        content_type,
-        study_cards: JSON.stringify(study_cards),
-        quiz_data: JSON.stringify(quiz_data),
+        type : content_type,
+        content : content_type === "quiz" ? JSON.stringify(quiz_data) : JSON.stringify(study_cards),
+        author_id : user().id
     };
 
     console.log("Payload:", payload);
 
-    // save to supabase
+    const { error } = await supabase.from("posts").insert(payload);
+    if (error) {
+        console.error(error);
+    }
 };
 
   const handleQuizUpdate = (quizData) => {
     console.log("Received quiz data:", quizData);
-    setFormState("quiz_data", quizData); // Quiz data již čistá
+    setFormState("quiz_data", quizData);
   };
 
   return (
