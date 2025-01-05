@@ -24,6 +24,12 @@ function Home() {
             </a>
           </div>
         </div>
+        <h3 className="mt-3 max-w-md mx-auto text-base text-red-500 sm:text-3xl md:mt-5 md:text-5xl md:max-w-3xl m-4">
+          Platforma zatím není provozu schopná. {/*Currently not available.*/}
+        </h3>
+        <p>
+          Můžete nám pomoct s vývojem na <a className="text-yellow-500 underline" href="https://github.com/Jan-Havlish/huginn-learn">GitHubu</a> {/*We offer support for development on <a href="https://github.com/Jan-Havlish/huginn-learn">GitHub</a>.*/}
+        </p>
       </div>
     </div>
   );

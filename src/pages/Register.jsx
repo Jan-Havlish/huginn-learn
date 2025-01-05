@@ -6,6 +6,8 @@ const Register = () => {
   const [password, setPassword] = createSignal("");
   const [username, setUsername] = createSignal("");
 
+  const disabled = true
+
   const handleRegister = async (e) => {
     e.preventDefault();
     console.log("Register attempt with:", {
@@ -29,6 +31,24 @@ const Register = () => {
       console.error(error);
     }
   };
+
+  if (disabled) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-md w-full space-y-8">
+          <div>
+            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+              Vytvořit účet {/*Create an account*/}
+            </h2>
+            <h3 className="mt-6 text-center text-3xl font-extrabold text-red-600">
+              Teď nedostupné {/*Unavailable*/}
+            </h3>
+
+          </div>
+        </div>
+      </div>
+    );
+  } else {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -84,5 +104,5 @@ const Register = () => {
     </div>
   );
 };
-
+}
 export default Register;
