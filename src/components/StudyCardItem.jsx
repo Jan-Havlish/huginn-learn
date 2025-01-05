@@ -3,6 +3,8 @@ import { createSignal } from 'solid-js';
 const StudyCardItem = (props) => {
   const [isFlipped, setIsFlipped] = createSignal(false);
 
+  console.log(props, "props in StudyCardItem");
+
   const toggleCard = () => {setIsFlipped(!isFlipped())
     console.log(isFlipped(), "isFlipped");
   };
@@ -31,7 +33,7 @@ const StudyCardItem = (props) => {
       {/* Back side */}
       <div class="absolute w-full h-full bg-white rounded-lg shadow-md p-6 backface-hidden">
           <div class="flex items-center justify-center h-full">
-            <p class="text-center text-gray-700">{props.card.back}</p>
+            <p class="text-center text-gray-700 text-xl">{props.card.back}</p>
           </div>
         </div>
     </div>

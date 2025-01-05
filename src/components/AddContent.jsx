@@ -61,7 +61,8 @@ const addNewCard = () => {
         description,
         type : content_type,
         content : content_type === "quiz" ? JSON.stringify(quiz_data) : JSON.stringify(study_cards),
-        author_id : user().id
+        author_id : user().id,
+        author_name : user().user_metadata.username,
     };
 
     console.log("Payload:", payload);

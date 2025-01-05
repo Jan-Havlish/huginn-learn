@@ -5,6 +5,8 @@ const QuizDisplay = (props) => {
   const [selectedAnswers, setSelectedAnswers] = createSignal([]);
   const [showResults, setShowResults] = createSignal(false);
 
+  console.log(props, "props in QuizDisplay");
+
   const handleAnswer = (optionIndex) => {
     const newAnswers = [...selectedAnswers()];
     newAnswers[currentQuestion()] = props.quiz.questions[currentQuestion()].options?.[optionIndex].correct ?? false;
@@ -24,7 +26,9 @@ const QuizDisplay = (props) => {
 
   return (
     <div class="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
-      {!showResults() ? (
+      {!props.quiz || !props.quiz.questions ? (
+        <p class="text-center text-gray-500">No quiz data available</p>
+      ) : !showResults() ? (
         <div>
           <h2 class="text-xl font-bold mb-4">
             Question {currentQuestion() + 1} of {props.quiz.questions.length}
@@ -61,6 +65,7 @@ const QuizDisplay = (props) => {
       )}
     </div>
   );
+  
 };
 
 export default QuizDisplay;

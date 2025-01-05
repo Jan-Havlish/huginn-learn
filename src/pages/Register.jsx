@@ -18,6 +18,11 @@ const Register = () => {
       const { error } = await supabase.auth.signUp({ // add username
         email: email(),
         password: password(),
+        options: {
+          data: {
+            username: username(),
+          },
+        },
       });
       if (error) throw error;
     } catch (error) {
