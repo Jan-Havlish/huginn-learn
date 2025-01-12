@@ -1,3 +1,5 @@
+import RoadMapBoard from "../components/RoadMapBoard";
+
 function Home() {
   const handleGetStarted = () => {
     console.log("Get started clicked");
@@ -28,8 +30,10 @@ function Home() {
           Platforma zatím není provozu schopná. {/*Currently not available.*/}
         </h3>
         <p>
-          Můžete nám pomoct s vývojem na <a className="text-yellow-500 underline" href="https://github.com/Jan-Havlish/huginn-learn">GitHubu</a> {/*We offer support for development on <a href="https://github.com/Jan-Havlish/huginn-learn">GitHub</a>.*/}
+          Můžete nám pomoct s vývojem na <a className="text-yellow-500 underline" href="https://github.com/Jan-Havlish/huginn-learn">GitHubu</a> {/*You can help us with development on <a href="https://github.com/Jan-Havlish/huginn-learn">GitHub</a>.*/}
         </p>
+        <h3 className="mt-3 max-w-md mx-auto text-base text-red-500 sm:text-2xl md:mt-5 md:text-4xl md:max-w-3xl m-4">Plány funkcí {/*Future features*/}</h3>
+        <RoadMapBoard />
       </div>
     </div>
   );
