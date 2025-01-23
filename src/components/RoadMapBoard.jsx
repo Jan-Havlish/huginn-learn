@@ -3,8 +3,8 @@ import { For } from "solid-js";
 
 export default function RoadMapBoard() {
 
-  const roadMap = [
-      {text: "Komentáře a Liky", group: "userInteractions"},
+  const roadMap = [ // ToDo - translate
+      {text: "Komentáře a Liky", group: "userInteractions"}, 
       {text: "Základní nsfw filter", group: "safety"},
       {text: "Vlastní url pro jednotlivé přízpěvky", group: "userInteractions"},
       {text: "Stránky pro uživatele", group: "userInteractions"},

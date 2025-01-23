@@ -17,7 +17,7 @@ const Register = () => {
     });
 
     try {
-      const { error } = await supabase.auth.signUp({ // add username
+      const { error } = await supabase.auth.signUp({
         email: email(),
         password: password(),
         options: {
